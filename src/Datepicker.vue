@@ -55,7 +55,7 @@
           </div>
           <div class="datepicker-monthRange">
             <template v-for="m in monthNames">
-              <span   v-bind:class="{'datepicker-dateRange-item-active':
+              <span   v-bind:class="{'datepicker-dateRange-item-active': this.value &&
                   (this.monthNames[this.parse(this.value).getMonth()]  === m) &&
                   this.currDate.getFullYear() === this.parse(this.value).getFullYear()}"
                   @click="monthSelect($index)"
@@ -75,7 +75,7 @@
           </div>
           <div class="datepicker-monthRange decadeRange">
             <template v-for="decade in decadeRange">
-              <span v-bind:class="{'datepicker-dateRange-item-active':
+              <span v-bind:class="{'datepicker-dateRange-item-active': this.value &&
                   this.parse(this.value).getFullYear() === decade.text}"
                   @click.stop="yearSelect(decade.text)"
                 >{{decade.text}}</span>
@@ -116,7 +116,7 @@ export default {
   },
   data() {
     return {
-      weekRange: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+      weekRange: ['日', '一', '二', '三', '四', '五', '六'],
       dateRange: [],
       decadeRange: [],
       currDate: new Date,
@@ -124,10 +124,10 @@ export default {
       displayMonthView: false,
       displayYearView: false,
       monthNames: [
-        'January', 'February', 'March',
-        'April', 'May', 'June',
-        'July', 'August', 'September',
-        'October', 'November', 'December'
+        '一月', '二月', '三月',
+        '四月', '五月', '六月',
+        '七月', '八月', '九月',
+        '十月', '十一月', '十二月'
       ]
     }
   },
